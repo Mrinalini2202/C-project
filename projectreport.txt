@@ -1,0 +1,82 @@
+Project Report — Bank System (C Project)
+Date: 25 Nov 2025
+
+1. Project overview
+-------------------
+This repository contains a small command-line bank account management system written in C. The program supports basic account operations and persists data to files.
+
+2. Objectives
+-------------
+- Provide a simple CLI for creating, updating and viewing bank accounts.
+- Keep code modular: separate source files for account logic, file I/O, and utilities.
+- Use simple text files for persistent storage so the project is easy to inspect and extend.
+
+3. Project structure (root)
+---------------------------
+- `src/` — C source files
+  - `main.c`
+  - `account_operations.c`
+  - `file_operations.c`
+  - `utils.c`
+- `include/` — Header files
+  - `account_operations.h`
+  - `file_operations.h`
+  - `utils.h`
+- `data/` — Data files used by the program (accounts, records)
+- `assets/`, `docs/` — Optional assets and documentation
+- `sample_input.txt` — Example input file to try with the program
+- `README.md` — Project README (added)
+- `Makefile` — Build, run, and clean targets (added)
+
+4. Build & run (recommended)
+----------------------------
+From the repository root (macOS / zsh):
+
+Build using Makefile:
+
+    make
+
+Or compile directly with gcc:
+
+    gcc src/*.c -I include -o bank_system
+
+Run the program:
+
+    ./bank_system
+
+Run with sample input:
+
+    ./bank_system < sample_input.txt
+
+Clean build artifacts:
+
+    make clean
+
+5. Key implementation notes
+---------------------------
+- The code is split into logical modules: account operations, file operations, and utilities.
+- The Makefile compiles all source files with `-I include` and `-std=c11`.
+- No external libraries are required; the project uses standard C library only.
+
+6. Testing
+----------
+- Quick manual test: run the program and exercise commands (create account, deposit, withdraw, list accounts).
+- Use `sample_input.txt` to feed a sequence of commands via stdin for reproducible runs.
+
+7. Known limitations & next steps
+--------------------------------
+- No automated unit tests; adding a test harness (e.g., using CUnit or a custom test runner) would increase reliability.
+- Persistence is plain text; consider switching to a simple binary format or SQLite for more robust storage.
+- Add input validation and better error handling (e.g., handle malformed data files gracefully).
+- Add documentation for the input command syntax and example workflows in `docs/`.
+
+8. Contributors / authors
+------------------------
+See git history for contributor details. Repository owner: `HarjasBhatia` (as listed in repo metadata).
+
+9. References
+-------------
+- `README.md` for quick start
+- `Makefile` for build/run commands
+
+Prepared by: project contributors
